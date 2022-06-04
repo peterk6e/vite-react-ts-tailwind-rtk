@@ -1,9 +1,8 @@
 import React from "react";
-import { User } from "../models/models";
-import { useSelector } from "react-redux";
+import { useAppSelector } from './../app/hooks'
 
 export const UserInfo = () => {
-  const user: User = useSelector((state: any) => state.value);
+  const user = useAppSelector(state => state.user.value);
 
   return (
     <div className="flex items-center justify-center text-gray-500 -mt-16">

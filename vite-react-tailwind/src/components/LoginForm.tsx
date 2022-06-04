@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { login } from "../features/User";
-import { useDispatch } from "react-redux";
+import { login } from "../features/user/userSlice";
+import { useAppDispatch } from './../app/hooks'
+
 import loginIMage from "./../img/login.svg";
 
 export const LoginForm = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <form

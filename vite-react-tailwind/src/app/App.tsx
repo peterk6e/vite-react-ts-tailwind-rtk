@@ -1,5 +1,5 @@
-import { LoginForm } from "./components/LoginForm";
-import { UserInfo } from "./components/UserInfo";
+import { LoginForm } from "../components/LoginForm";
+import { UserInfo } from "../components/UserInfo";
 
 function App() {
   return (
