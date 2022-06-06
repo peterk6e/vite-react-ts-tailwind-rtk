@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { login } from "../features/user/userSlice";
-import { useAppDispatch } from './../app/hooks'
+import { useAppDispatch } from "./../app/hooks";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "./../../firebase-config";
 
 import loginIMage from "./../img/login.svg";
 
@@ -9,10 +11,23 @@ export const LoginForm = () => {
   const [password, setPassword] = useState<string>("");
   const dispatch = useAppDispatch();
 
+
+  const registerUser = async () => {
+    try {
+      const user = await createUserWithEmailAndPassword(auth, email, password);
+      console.log(user);
+    } catch (error) {
+      console.log((error as Error).message);
+    }
+  };
+  const loginUser = async () => {};
+  const logoutUser = async () => {};
+
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
+        registerUser();
         dispatch(
           login({ id: Math.random(), email: email, password: password })
         );
